@@ -1,0 +1,187 @@
+namespace _03.SpaceStationEstablishment
+{
+    using System;
+
+    public class Program
+    {
+
+        public static void Main(string[] args)
+
+        {
+            int rows = int.Parse(Console.ReadLine());
+            int stephenRow = 0;
+            int stephenCol = 0;
+            char[,] matrix = new char[rows, rows];
+
+            int firstBlackHolesRow = -1;
+            int firstBlackHolesCol = 0;
+
+            int secondBlackHolesRow = 0;
+            int secondBlackHolesCol = 0;
+
+            int energy = 0;
+
+            for (int row = 0; row < rows; row++)
+            {
+                char[] input = Console.ReadLine().ToCharArray();
+
+                for (int col = 0; col < rows; col++)
+                {
+
+                    matrix[row, col] = input[col];
+
+                    if (matrix[row, col] == 'S')
+                    {
+                        stephenRow = row;
+                        stephenCol = col;
+                        matrix[row, col] = '-';
+                    }
+                    else if (matrix[row, col] == 'O')
+                    {
+                        if (firstBlackHolesRow > -1)
+                        {
+                            secondBlackHolesRow = row;
+                            secondBlackHolesCol = col;
+                        }
+                        else
+                        {
+                            firstBlackHolesRow = row;
+                            firstBlackHolesCol = col;
+                        }
+                    }
+                }
+            }
+            bool win = false;
+
+            while (IsInside(matrix, stephenRow, stephenCol) && energy < 50)
+            {
+                string command = Console.ReadLine();
+
+                if (command == "up")
+                {
+                    if (stephenRow - 1 >= 0)
+                    {
+                        stephenRow--;
+                    }
+                    else
+                    {
+                        win = false;
+                        break;
+                    }
+                }
+                else if (command == "down")
+                {
+                    if (stephenRow + 1 < matrix.GetLength(0))
+                    {
+                        stephenRow++;
+                    }
+                    else
+                    {
+                        win = false;
+                        break;
+                    }
+                }
+                else if (command == "left")
+                {
+                    if (stephenCol - 1 >= 0)
+                    {
+
+                        stephenCol--;
+                    }
+                    else
+                    {
+                        win = false;
+                        break;
+                    }
+                }
+                else if (command == "right")
+                {
+                    if (stephenCol + 1 < matrix.GetLength(1))
+                    {
+
+                        stephenCol++;
+                    }
+                    else
+                    {
+                        win = false;
+                        break;
+                    }
+                }
+
+                char symbol = matrix[stephenRow, stephenCol];
+
+                if (symbol == 'O')
+                {
+                    if (matrix[stephenRow, stephenCol] == matrix[firstBlackHolesRow, firstBlackHolesCol])
+                    {
+                        matrix[stephenRow, stephenCol] = '-';
+                        stephenRow = secondBlackHolesRow;
+                        stephenCol = secondBlackHolesCol;
+
+                    }
+                    else
+                    {
+                        matrix[stephenRow, stephenCol] = '-';
+                        stephenRow = firstBlackHolesRow;
+                        stephenCol = firstBlackHolesCol;
+                    }
+
+                    matrix[stephenRow, stephenCol] = '-';
+
+                }
+                if (char.IsDigit(symbol))
+                {
+
+                    matrix[stephenRow, stephenCol] = '-';
+
+                    energy += int.Parse(symbol.ToString());
+                    if (energy == 50)
+                    {
+
+                        matrix[stephenRow, stephenCol] = 'S';
+                        win = true;
+                        break;
+                    }
+                    else if (energy >= 50)
+                    {
+                        matrix[stephenRow, stephenCol] = 'S';
+                        win = true;
+                        break;
+                    }
+
+                }
+            }
+            if (win)
+            {
+                Console.WriteLine("Good news! Stephen succeeded in collecting enough star power!");
+            }
+            else
+            {
+                Console.WriteLine("Bad news, the spaceship went to the void.");
+            }
+
+            Console.WriteLine($"Star power collected: {energy}");
+
+            for (int row = 0; row < rows; row++)
+            {
+                for (int col = 0; col < rows; col++)
+                {
+                    Console.Write($"{matrix[row, col]}");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static bool IsInside(char[,] matrix, int stephenRow, int stephenCol)
+        {
+            if (stephenRow >= 0 && stephenRow < matrix.Length - 1
+                && stephenCol >= 0 && stephenCol < matrix.Length - 1)
+            {
+
+                return true;
+            }
+            return false;
+        }
+
+    }
+}
