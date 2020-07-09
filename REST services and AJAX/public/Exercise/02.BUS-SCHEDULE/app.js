@@ -41,6 +41,6 @@ function solve() {
         depart,
         arrive
     };
-}   
+}
 
 let result = solve();
