@@ -1,4 +1,4 @@
-function loadRepos() {    
+function loadRepos() {
     const reposElement = document.getElementById("repos");
     reposElement.innerHTML = '';
 
@@ -12,7 +12,7 @@ function loadRepos() {
         link.setAttribute('href', url);
 
         let item = document.createElement('li');
-        item.appendChild(link);       
+        item.appendChild(link);
 
         return item;
     }
@@ -21,7 +21,7 @@ function loadRepos() {
         for (let repo of repoItems) {
             const { full_name, html_url } = repo;
             const repoItem = createRepo(full_name, html_url);
-            reposElement.appendChild(repoItem)            
+            reposElement.appendChild(repoItem)
         }
     }
 
