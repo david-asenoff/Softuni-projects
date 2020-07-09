@@ -55,7 +55,7 @@
         phonebookElement.innerHTML = '<li>Loading &hellip;</li>';
 
         //By default Method is GET
-        function success(data) {            
+        function success(data) {
             phonebookElement.innerHTML = '';
 
             for (const key in data) {
