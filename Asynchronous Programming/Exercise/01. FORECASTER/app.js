@@ -1,103 +1,115 @@
-import * as data from './data.js';
+function attachEvents() {
+    const locationInput = document.getElementById("location");
+    const forecastDiv = document.getElementById("forecast");
+    const currentDiv = document.getElementById("current");
+    const upcomingDiv = document.getElementById("upcoming");
 
-const getBtn = document.getElementById('submit');
-const locationName = document.getElementById('location');
-const forecastDiv = document.getElementById('forecast');
-const currentWeatherDiv = document.getElementById('current');
-const upcomingDiv = document.getElementById('upcoming');
+    const initialCurrentDivState = currentDiv.cloneNode(true);
+    const initialUpcomingDivState = upcomingDiv.cloneNode(true);
 
-const symbols = {
+    const submitBtn = document.getElementById("submit");
+    submitBtn.addEventListener("click", onSubmitBtnClick)
 
-    'Sunny': '&#x2600;',
-    'Partly sunny': '&#x26C5;',
-    'Overcast': '&#x2601;',
-    'Rain': '&#x2614;',
-    'Degrees': '&#176;'
+    async function onSubmitBtnClick() {
+        await reset();
+
+        const locationsUrl = "https://judgetests.firebaseio.com/locations.json";
+
+        const locations = await fetch(locationsUrl).then(data => data.json()).catch(() => {
+            setForecastToError();
+        })
+
+        const neededObj = locations.find(x => x.name === locationInput.value);
+
+        !neededObj ? await setForecastToError() : "";
+
+        await getAndSetTodaysForecast(neededObj.code);
+        await getAndSetUpcomingForecast(neededObj.code);
+
+    }
+
+    async function getAndSetTodaysForecast(code) {
+
+        const {forecast: {condition, high, low}, name} = await fetch(`https://judgetests.firebaseio.com/forecast/today/${code}.json`)
+            .then(data => data.json())
+            .catch(() => {
+                setForecastToError()
+            });
+
+        const symbol = await getSymbolToUse(condition);
+
+        const newForecastDiv = document.createElement("div")
+        newForecastDiv.className = "forecasts";
+
+        const symbolSpan = document.createElement("span");
+        symbolSpan.className = "condition symbol";
+        symbolSpan.innerHTML = symbol;
+
+        newForecastDiv.appendChild(symbolSpan);
+
+        newForecastDiv.innerHTML +=
+            "<span class='condition'>" +
+            `<span class='forecast-data'>${name}</span>` +
+            `<span class='forecast-data'>${low}°/${high}°/</span>` +
+            `<span class='forecast-data'>${condition}</span>` +
+            "</span>";
+
+        currentDiv.appendChild(newForecastDiv);
+        forecastDiv.style.display = "block"
+    }
+
+    async function getAndSetUpcomingForecast(code) {
+
+        const {forecast: forecasts} = await fetch(`https://judgetests.firebaseio.com/forecast/upcoming/${code}.json`)
+            .then(data => data.json())
+            .catch(() => {
+                setForecastToError()
+            });
+
+        for (const {condition, high, low} of forecasts) {
+            const symbol = await getSymbolToUse(condition);
+
+            const newForecastDiv = document.createElement("div")
+            newForecastDiv.className = "forecast-info";
+
+            const symbolSpan = document.createElement("span");
+            symbolSpan.className = "symbol";
+            symbolSpan.innerHTML = symbol;
+
+            newForecastDiv.appendChild(symbolSpan);
+
+            newForecastDiv.innerHTML +=
+                "<span class='upcoming'>" +
+                `<span class='forecast-data'>${low}°/${high}°/</span>` +
+                `<span class='forecast-data'>${condition}</span>` +
+                "</span>";
+
+            upcomingDiv.appendChild(newForecastDiv);
+        }
+    }
+
+    async function setForecastToError() {
+        forecastDiv.style.display = "block";
+        currentDiv.innerHTML += "Error";
+        upcomingDiv.innerHTML += "Error";
+    }
+
+    async function reset() {
+        currentDiv.innerHTML = initialCurrentDivState.innerHTML;
+        upcomingDiv.innerHTML = initialUpcomingDivState.innerHTML;
+    }
+
+    async function getSymbolToUse(condition) {
+        const charObj = {
+            Sunny: "&#x2600;",
+            "Partly sunny": "&#x26C5;",
+            Overcast: "&#x2601",
+            Rain: "&#x2614",
+
+        }
+
+        return charObj[condition];
+    }
 }
 
-getBtn.addEventListener('click', async function (e) {
-
-    let locationCode = '';
-
-    try {
-
-        locationCode = await data.getLocationCode(locationName.value);
-    }
-    catch (error) {
-
-        locationName.value = 'ERROR';
-        return;
-    }
-
-    const currentWeatherData = await data.getCurrentWeather(locationCode);
-    const threeDaysData = await data.getThreeDaysForecast(locationCode);
-
-    currentWeatherDiv.innerHTML = '';
-
-    const currentDiv = document.createElement('div');
-    currentDiv.classList.add('forecasts');
-
-    const symbolSpan = document.createElement('span');
-    symbolSpan.classList.add('condition');
-    symbolSpan.classList.add('symbol');
-
-    symbolSpan.innerHTML = symbols[currentWeatherData.forecast.condition];
-    currentDiv.appendChild(symbolSpan);
-
-    const conditionSpan = document.createElement('span');
-    conditionSpan.classList.add('condition');
-
-    const firstSpan = document.createElement('span');
-    firstSpan.classList.add('forecast-data');
-    const secondSpan = document.createElement('span');
-    secondSpan.classList.add('forecast-data');
-    const thirdSpan = document.createElement('span');
-    thirdSpan.classList.add('forecast-data');
-
-    firstSpan.textContent = currentWeatherData.name;
-    secondSpan.innerHTML = `${currentWeatherData.forecast.low}${symbols.Degrees}/${currentWeatherData.forecast.high}${symbols.Degrees}`;
-    thirdSpan.textContent = currentWeatherData.forecast.condition;
-
-    conditionSpan.appendChild(firstSpan);
-    conditionSpan.appendChild(secondSpan);
-    conditionSpan.appendChild(thirdSpan);
-
-    currentDiv.appendChild(conditionSpan);
-
-    currentWeatherDiv.appendChild(currentDiv);
-
-    forecastDiv.style.display = 'block';
-
-    const infoDiv = document.createElement('div');
-    infoDiv.classList.add('forecast-info');
-
-    threeDaysData.forecast.forEach(day => {
-
-        upcomingDiv.innerHTML = '';
-
-        const upcomingSpan = document.createElement('span');
-        upcomingSpan.classList.add('upcoming');
-
-        const symbolSpan = document.createElement('span');
-        symbolSpan.classList.add('symbol');
-        const secondSpan = document.createElement('span');
-        secondSpan.classList.add('forecast-data');
-        const thirdSpan = document.createElement('span');
-        thirdSpan.classList.add('forecast-data');
-
-        symbolSpan.innerHTML = symbols[day.condition];
-        secondSpan.innerHTML = `${day.low}${symbols.Degrees}/${day.high}${symbols.Degrees}`;
-        thirdSpan.textContent = day.condition;
-
-        upcomingSpan.appendChild(symbolSpan);
-        upcomingSpan.appendChild(secondSpan);
-        upcomingSpan.appendChild(thirdSpan);
-
-        infoDiv.appendChild(upcomingSpan);
-
-        upcomingDiv.appendChild(infoDiv);
-
-    });
-
-    locationName.value = '';
-});
+attachEvents();
