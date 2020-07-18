@@ -2,7 +2,7 @@
     await renderCatTemplate();
     await attachEvents();
 
-    async function renderCatTemplate() {
+    const renderCatTemplate = async () => {
         const catsUl = document.querySelector("#allCats > ul");
 
         const cats = window.cats;
@@ -10,23 +10,23 @@
             .then(data => data.text());
 
         const catsTemplate = Handlebars.compile(template);
-        const context = {cats}
+        const context = { cats }
 
         catsUl.innerHTML += catsTemplate(context);
-    }
+    };
 
-    async function attachEvents() {
+    const attachEvents = async () => {
         const buttons = document.querySelectorAll(".info > button");
         buttons.forEach((btn) => {
             btn.addEventListener("click", onBtnClick);
         })
-    }
+    };
 
-    async function onBtnClick(e) {
-        const btn = e.target;
+    const onBtnClick = async e => {
+        const button = e.target;
         const statusDiv = e.target.nextElementSibling;
 
-        const btnTextSwitch = {
+        const buttonTextSwitch = {
             "Show status code": "Hide status code",
             "Hide status code": "Show status code",
         }
@@ -36,8 +36,7 @@
             "block": "none",
         }
 
-        btn.textContent = btnTextSwitch[btn.textContent];
+        button.textContent = buttonTextSwitch[button.textContent];
         statusDiv.style.display = displayStyleSwitch[statusDiv.style.display];
-    }
-
+    };
 })();
