@@ -6,30 +6,31 @@
         const monkeysDiv = document.querySelector("div.monkeys");
 
         const template = await fetch("template.hbs")
-            .then(data => data.text());
+            .then(data => {
+                return data.text();
+            });
 
         const monkeysTemplate = Handlebars.compile(template);
 
         const monkeys = window.monkeys;
-        const context = {monkeys};
+        const context = { monkeys };
 
         monkeysDiv.innerHTML += monkeysTemplate(context);
     }
 
-    async function attachEvents() {
+    const attachEvents = async () => {
         const buttons = document.querySelectorAll(".monkey > button");
 
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", onBtnClick);
+        buttons.forEach((button) => {
+            button.addEventListener("click", onBtnClick);
         })
-    }
+    };
 
-    async function onBtnClick(e) {
-        const btn = e.target;
-        const infoP = btn.nextElementSibling;
+    const onBtnClick = async e => {
+        const button = e.target;
+        const infoParagraph = button.nextElementSibling;
 
-        //Not required, added by me
-        const btnTextSwitch = {
+        const buttonTextSwitch = {
             "Info": "Hide",
             "Hide": "Info",
         }
@@ -39,9 +40,7 @@
             "block": "none",
         }
 
-        btn.textContent = btnTextSwitch[btn.textContent];
-
-        infoP.style.display = displayStyleSwitch[infoP.style.display];
-
-    }
+        button.textContent = buttonTextSwitch[button.textContent];
+        infoParagraph.style.display = displayStyleSwitch[infoParagraph.style.display];
+    };
 })()
