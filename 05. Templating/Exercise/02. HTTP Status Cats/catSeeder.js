@@ -7,8 +7,7 @@
             this.imageLocation = imageLocation;
         }
     }
-
-
+    
     window.cats = [
         new Cat('100', 100, 'Continue', 'cat100'),
         new Cat('200', 200, 'Ok', 'cat200'),
