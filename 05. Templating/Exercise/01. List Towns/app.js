@@ -5,19 +5,19 @@ async function attachEvents() {
 
     loadTownsBtn.addEventListener("click", onLoadTownsBtnClick)
 
-    async function onLoadTownsBtnClick(e) {
+    const onLoadTownsBtnClick = async e => {
         e.preventDefault();
         const towns = townsInput.value.split(", ");
 
         const template = await fetch("template.hbs")
             .then(data => data.text());
 
-        const context = {towns};
+        const context = { towns };
 
         const townsTemplate = Handlebars.compile(template);
 
         rootUl.innerHTML += townsTemplate(context);
-    }
+    };
 }
 
 attachEvents();
