@@ -1,0 +1,26 @@
+@import url(https://use.fontawesome.com/releases/v5.11.2/css/all.css);
+
+html{
+    margin:50px;
+}
+p {
+    margin: 3em;
+}
+
+a {
+    padding: 10px;
+    text-decoration: none;
+    border-width: 100%;
+    border-radius: 4px;
+    color: white;
+}
+.greenButt a {
+    background-color: green;
+}
+.orangeButt a {
+    background-color: orange;
+}
+
+.fa-star:before, .fa-envelope:before{
+    margin:2px;
+}
