@@ -10,7 +10,7 @@ using SharedTrip.Data;
 namespace SharedTrip.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201021103937_InitialCreate")]
+    [Migration("20201021110316_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,7 +50,7 @@ namespace SharedTrip.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Trip");
+                    b.ToTable("Trips");
                 });
 
             modelBuilder.Entity("SharedTrip.Data.User", b =>
@@ -74,7 +74,7 @@ namespace SharedTrip.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SharedTrip.Data.UserTrip", b =>
@@ -92,7 +92,7 @@ namespace SharedTrip.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserTrip");
+                    b.ToTable("UserTrips");
                 });
 
             modelBuilder.Entity("SharedTrip.Data.UserTrip", b =>

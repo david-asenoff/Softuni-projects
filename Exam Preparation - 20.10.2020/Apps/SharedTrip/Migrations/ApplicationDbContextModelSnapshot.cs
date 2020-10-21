@@ -48,7 +48,7 @@ namespace SharedTrip.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Trip");
+                    b.ToTable("Trips");
                 });
 
             modelBuilder.Entity("SharedTrip.Data.User", b =>
@@ -72,7 +72,7 @@ namespace SharedTrip.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SharedTrip.Data.UserTrip", b =>
@@ -90,7 +90,7 @@ namespace SharedTrip.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserTrip");
+                    b.ToTable("UserTrips");
                 });
 
             modelBuilder.Entity("SharedTrip.Data.UserTrip", b =>
