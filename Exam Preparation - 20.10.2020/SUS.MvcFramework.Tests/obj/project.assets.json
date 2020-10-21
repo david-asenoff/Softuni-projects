@@ -4113,27 +4113,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mariela\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
+      "projectUniqueName": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
       "projectName": "SUS.MvcFramework.Tests",
-      "projectPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
-      "packagesPath": "C:\\Users\\Mariela\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework.Tests\\obj\\",
+      "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework.Tests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Mariela\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -4145,8 +4138,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
-              "projectPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
+            "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
+              "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
             }
           }
         }
@@ -4192,7 +4185,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

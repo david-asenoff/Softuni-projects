@@ -257,6 +257,18 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.Tools/3.1.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "3.1.9"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
         "type": "package",
         "dependencies": {
@@ -2091,6 +2103,30 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore.Tools/3.1.9": {
+      "sha512": "mSgwjp0h5iqW5V49SVijR5O+kNpI1nitcbN12n9FYx/Ga6oCEFwXR/llBDesD6ASHw3Mx16vodJYJ7CEBx5rig==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.tools/3.1.9",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/_._",
+        "microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.nuspec",
+        "tools/EntityFrameworkCore.PS2.psd1",
+        "tools/EntityFrameworkCore.PS2.psm1",
+        "tools/EntityFrameworkCore.psd1",
+        "tools/EntityFrameworkCore.psm1",
+        "tools/about_EntityFrameworkCore.help.txt",
+        "tools/init.ps1",
+        "tools/net461/any/ef.exe",
+        "tools/net461/win-x86/ef.exe",
+        "tools/netcoreapp2.0/any/ef.dll",
+        "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
+      ]
+    },
     "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
       "sha512": "/2QsPAsUZD4qvftZkUKHRRRryPDXWh606/iNXPLrulwHLMr9JNsKBJWVqylT3qU92nJok5VoqSblkY9mSyxFyg==",
       "type": "package",
@@ -2784,11 +2820,12 @@
       ]
     },
     "System.Collections.Specialized/4.3.0": {
-      "sha512": "NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
+      "sha512": "Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
       "type": "package",
       "path": "system.collections.specialized/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5001,7 +5038,7 @@
       ]
     },
     "System.Runtime.Serialization.Primitives/4.3.0": {
-      "sha512": "2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
+      "sha512": "Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
       "type": "package",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
@@ -6041,32 +6078,26 @@
       "Microsoft.EntityFrameworkCore >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.9",
+      "Microsoft.EntityFrameworkCore.Tools >= 3.1.9",
       "SUS.HTTP >= 1.0.0",
       "SUS.MvcFramework >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mariela\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\Apps\\SharedTrip\\SharedTrip.csproj",
+      "projectUniqueName": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\Apps\\SharedTrip\\SharedTrip.csproj",
       "projectName": "SharedTrip",
-      "projectPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\Apps\\SharedTrip\\SharedTrip.csproj",
-      "packagesPath": "C:\\Users\\Mariela\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\Apps\\SharedTrip\\obj\\",
+      "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\Apps\\SharedTrip\\SharedTrip.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\Apps\\SharedTrip\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Mariela\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6078,11 +6109,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.HTTP\\SUS.HTTP.csproj": {
-              "projectPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.HTTP\\SUS.HTTP.csproj"
+            "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.HTTP\\SUS.HTTP.csproj": {
+              "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.HTTP\\SUS.HTTP.csproj"
             },
-            "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
-              "projectPath": "C:\\Users\\Mariela\\Desktop\\Exam-Preparation\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
+            "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
+              "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparation - 20.10.2020\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
             }
           }
         }
@@ -6109,6 +6140,12 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[3.1.9, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.1.9, )"
           }
         },
         "imports": [
@@ -6126,7 +6163,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
