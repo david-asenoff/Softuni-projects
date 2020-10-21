@@ -20,8 +20,6 @@ namespace SharedTrip.Data
         [Required]
         public string Email { get; set; }
         [Required]
-        [MaxLength(20)]
-        [MinLength(6)]
         public string Password { get; set; }
         public virtual ICollection<UserTrip> UserTrips { get; set; }
     }

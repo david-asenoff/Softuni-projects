@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SharedTrip.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace SharedTrip.Migrations
                     Id = table.Column<string>(nullable: false),
                     Username = table.Column<string>(maxLength: 20, nullable: false),
                     Email = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(maxLength: 20, nullable: false)
+                    Password = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,8 +43,7 @@ namespace SharedTrip.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    TripId = table.Column<string>(nullable: false),
-                    Id = table.Column<int>(nullable: false)
+                    TripId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

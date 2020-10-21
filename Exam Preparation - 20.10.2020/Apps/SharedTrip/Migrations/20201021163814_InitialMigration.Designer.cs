@@ -10,8 +10,8 @@ using SharedTrip.Data;
 namespace SharedTrip.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201021110316_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20201021163814_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,8 +64,7 @@ namespace SharedTrip.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -84,9 +83,6 @@ namespace SharedTrip.Migrations
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
 
                     b.HasKey("TripId", "UserId");
 
