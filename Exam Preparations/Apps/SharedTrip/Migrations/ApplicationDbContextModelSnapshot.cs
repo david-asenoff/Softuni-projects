@@ -39,10 +39,10 @@ namespace SharedTrip.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Seats")
-                        .HasColumnType("int");
+                    b.Property<byte>("Seats")
+                        .HasColumnType("tinyint");
 
-                    b.Property<string>("StartPoint")
+                    b.Property<string>("StartingPoint")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

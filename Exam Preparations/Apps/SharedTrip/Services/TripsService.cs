@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 
 namespace SharedTrip.Services
 {
@@ -53,7 +52,7 @@ namespace SharedTrip.Services
                 EndPoint = trip.EndPoint,
                 ImagePath = trip.ImagePath,
                 Seats = (byte)trip.Seats,
-                StartPoint = trip.StartPoint,
+                StartingPoint = trip.StartPoint,
             };
             this.db.Trips.Add(dbTrip);
             this.db.SaveChanges();
@@ -65,7 +64,7 @@ namespace SharedTrip.Services
             {
                 DepartureTime = x.DepartureTime,
                 EndPoint = x.EndPoint,
-                StartPoint = x.StartPoint,
+                StartPoint = x.StartingPoint,
                 Id = x.Id,
                 Seats = x.Seats,
                 UsedSeats = x.UserTrips.Count(),
@@ -84,7 +83,7 @@ namespace SharedTrip.Services
                     Id = x.Id,
                     ImagePath = x.ImagePath,
                     Seats = x.Seats,
-                    StartPoint = x.StartPoint,
+                    StartPoint = x.StartingPoint,
                     UsedSeats = x.UserTrips.Count(),
                 })
                 .FirstOrDefault();

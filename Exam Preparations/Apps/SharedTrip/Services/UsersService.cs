@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
-using SharedTrip.Data;
+﻿using SharedTrip.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +7,19 @@ using System.Text;
 
 namespace SharedTrip.Services
 {
-    public class UserService : IUsersService
+    public class UsersService : IUsersService
     {
         private readonly ApplicationDbContext db;
 
-        public UserService(ApplicationDbContext db)
+        public UsersService(ApplicationDbContext db)
         {
             this.db = db;
         }
+
         public void Create(string username, string email, string password)
         {
             var user = new User
-            {
+            { 
                 Email = email,
                 Username = username,
                 Password = ComputeHash(password),
@@ -35,9 +35,9 @@ namespace SharedTrip.Services
 
         public string GetUserId(string username, string password)
         {
-            var hashedPassword = ComputeHash(password);
-             var user = this.db.Users.FirstOrDefault(x => x.Username == username &&
-                                           x.Password == hashedPassword);
+            var hashPassword = ComputeHash(password);
+            var user = this.db.Users.FirstOrDefault(
+                x => x.Username == username && x.Password == hashPassword);
             return user?.Id;
         }
 

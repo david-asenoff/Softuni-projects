@@ -10,8 +10,8 @@ using SharedTrip.Data;
 namespace SharedTrip.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201021163814_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20201020153437_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,10 +41,10 @@ namespace SharedTrip.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Seats")
-                        .HasColumnType("int");
+                    b.Property<byte>("Seats")
+                        .HasColumnType("tinyint");
 
-                    b.Property<string>("StartPoint")
+                    b.Property<string>("StartingPoint")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

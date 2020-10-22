@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SharedTrip.Services
+﻿namespace SharedTrip.Services
 {
     public interface IUsersService
     {
-        string  GetUserId(string username, string password);
+        string GetUserId(string username, string password);
 
         void Create(string username, string email, string password);
 

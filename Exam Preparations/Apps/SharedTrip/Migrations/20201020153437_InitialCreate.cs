@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SharedTrip.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +12,10 @@ namespace SharedTrip.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    StartPoint = table.Column<string>(nullable: false),
+                    StartingPoint = table.Column<string>(nullable: false),
                     EndPoint = table.Column<string>(nullable: false),
                     DepartureTime = table.Column<DateTime>(nullable: false),
-                    Seats = table.Column<int>(nullable: false),
+                    Seats = table.Column<byte>(nullable: false),
                     Description = table.Column<string>(maxLength: 80, nullable: false),
                     ImagePath = table.Column<string>(nullable: true)
                 },

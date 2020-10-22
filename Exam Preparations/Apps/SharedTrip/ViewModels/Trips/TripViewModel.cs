@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 
 namespace SharedTrip.ViewModels.Trips
 {
@@ -19,7 +17,7 @@ namespace SharedTrip.ViewModels.Trips
 
         public int AvailableSeats => this.Seats - this.UsedSeats;
 
-        public int Seats { get; set; }
+        public byte Seats { get; set; }
 
         public int UsedSeats { get; set; }
     }

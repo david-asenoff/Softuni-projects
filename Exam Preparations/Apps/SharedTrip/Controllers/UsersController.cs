@@ -2,79 +2,106 @@
 using SharedTrip.ViewModels.Users;
 using SUS.HTTP;
 using SUS.MvcFramework;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace SharedTrip.Controllers
 {
     public class UsersController : Controller
     {
-        private IUsersService usersService;
+        private readonly IUsersService usersService;
 
         public UsersController(IUsersService usersService)
         {
             this.usersService = usersService;
         }
+
         public HttpResponse Login()
         {
+            if (this.IsUserSignedIn())
+            {
+                return this.Redirect("/");
+            }
+
             return this.View();
         }
+
         [HttpPost]
         public HttpResponse Login(LoginInputModel input)
         {
+            if (this.IsUserSignedIn())
+            {
+                return this.Redirect("/");
+            }
+
             var userId = this.usersService.GetUserId(input.Username, input.Password);
-            if (userId==null)
+            if (userId == null)
             {
                 return this.Error("Invalid username or password.");
             }
+
             this.SignIn(userId);
             return this.Redirect("/Trips/All");
         }
+
         public HttpResponse Register()
         {
+            if (this.IsUserSignedIn())
+            {
+                return this.Redirect("/");
+            }
+
             return this.View();
         }
+
         [HttpPost]
         public HttpResponse Register(RegisterInputModel input)
         {
-            if (string.IsNullOrEmpty(input.Username)||
-                input.Username.Length<5||
-                input.Username.Length>20)
+            if (this.IsUserSignedIn())
             {
-                return this.Error("Username should be between 5 and 20 characters long.");
+                return this.Redirect("/");
             }
-            if (string.IsNullOrEmpty(input.Email))
+
+            if (string.IsNullOrEmpty(input.Username) || input.Username.Length < 5 || input.Username.Length > 20)
             {
-                return this.Error("Email is required.");
+                return this.Error("Username should be between 5 and 20 character long.");
             }
-            if (!new EmailAddressAttribute().IsValid(input.Email))
+
+            if (string.IsNullOrEmpty(input.Email) || !new EmailAddressAttribute().IsValid(input.Email))
             {
-                return this.Error("Not valid Email.");
+                return this.Error("Invalid email.");
             }
-            if (string.IsNullOrEmpty(input.Password))
+
+            if (string.IsNullOrEmpty(input.Password) || input.Password.Length < 6 || input.Password.Length > 20)
             {
-                return this.Error("Password is required.");
+                return this.Error("Password is required and should be between 6 and 20 characters.");
             }
-            if (string.IsNullOrEmpty(input.Password) ||
-                input.Username.Length < 6 ||
-                input.Username.Length > 20)
+
+            if (input.ConfirmPassword != input.Password)
             {
-                return this.Error("Username should be between 6 and 20 characters long.");
+                return this.Error("Passwords do not match.");
             }
-            if (input.Password !=input.ConfirmPassword)
+
+            if (!this.usersService.IsEmailAvailable(input.Email))
             {
-                return this.Error("Passwords don't match.");
+                return this.Error("Email already taken.");
             }
-            this.usersService.Create(input.Username,
-                                     input.Email,
-                                     input.Password);
+
+            if (!this.usersService.IsUsernameAvailable(input.Username))
+            {
+                return this.Error("Username already taken.");
+            }
+
+            this.usersService.Create(input.Username, input.Email, input.Password);
             return this.Redirect("/Users/Login");
         }
 
         public HttpResponse Logout()
         {
+            if (!this.IsUserSignedIn())
+            {
+                return this.Redirect("/Users/Login");
+            }
+
             this.SignOut();
             return this.Redirect("/");
         }
