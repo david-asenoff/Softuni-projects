@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BattleCards.Services
+﻿namespace BattleCards.Services
 {
     public interface IUsersService
     {
-        string  GetUserId(string username, string password);
-
-        void Create(string username, string email, string password);
-
-        bool IsUsernameAvailable(string username);
+        string CreateUser(string username, string email, string password);
 
         bool IsEmailAvailable(string email);
+
+        string GetUserId(string username, string password);
+
+        bool IsUsernameAvailable(string username);
     }
 }

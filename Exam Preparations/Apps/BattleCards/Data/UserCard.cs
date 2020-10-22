@@ -1,10 +1,16 @@
-﻿namespace BattleCards.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BattleCards.Data
 {
-    public  class UserCard
+    public class UserCard
     {
-        public int UserId { get; set; }
-        public User User { get; set; }
+        [Required]
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
+
         public int CardId { get; set; }
-        public Card Card { get; set; }
+
+        public virtual Card Card { get; set; }
     }
 }

@@ -1,44 +1,49 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
-using BattleCards.Data;
-using System;
-using System.Collections.Generic;
+﻿using BattleCards.Data;
 using System.Linq;
-using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore.Internal;
 using System.Text;
+using System.Security.Cryptography;
+using SUS.MvcFramework;
 
 namespace BattleCards.Services
 {
-    public class UserService : IUsersService
+    public class UsersService : IUsersService
     {
         private readonly ApplicationDbContext db;
 
-        public UserService(ApplicationDbContext db)
+        public UsersService(ApplicationDbContext db)
         {
             this.db = db;
         }
-        public void Create(string username, string email, string password)
+
+        public string CreateUser(string username, string email, string password)
         {
             var user = new User
             {
-                Email = email,
                 Username = username,
+                Email = email,
+                Role = IdentityRole.User,
                 Password = ComputeHash(password),
             };
             this.db.Users.Add(user);
             this.db.SaveChanges();
+            return user.Id;
+        }
+
+        public string GetUserId(string username, string password)
+        {
+            var user = this.db.Users.FirstOrDefault(x => x.Username == username);
+            if (user?.Password != ComputeHash(password))
+            {
+                return null;
+            }
+            
+            return user.Id;
         }
 
         public bool IsEmailAvailable(string email)
         {
             return !this.db.Users.Any(x => x.Email == email);
-        }
-
-        public string GetUserId(string username, string password)
-        {
-            var hashedPassword = ComputeHash(password);
-             var user = this.db.Users.FirstOrDefault(x => x.Username == username &&
-                                           x.Password == hashedPassword);
-            return user?.Id;
         }
 
         public bool IsUsernameAvailable(string username)
