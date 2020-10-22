@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FIj4+uFYi1wS4M4cz216JFvx/AoIoEOxFrYwGJGyjm7bZHmpUdrVOBYW6Ws7adgbCMLTrV4eQCL9MGIg6sjgbQ==",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\SUS.HTTP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
