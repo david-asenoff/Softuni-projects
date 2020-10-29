@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aBriWPj5+d4FKbxWKO1svldfXLGeLy3OiBsAMnvwShSTiTNsOe1Xn+dcJLN2KifXYOxo9dwKtvUFRmzRGTXFfw==",
+  "dgSpecHash": "45PH6PRt0HlivJ38jHJtHSZ/GRPcjwBkTl1WP99HStID/glBV2TYfM4eaQDzk/uZZ9LiBvIsI6muL3BZbZ+New==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\Apps\\Suls\\Suls.csproj",
+  "projectFilePath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\Apps\\Suls\\Suls.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
@@ -17,6 +17,7 @@
     "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.9\\microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.9\\microsoft.entityframeworkcore.relational.3.1.9.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.9\\microsoft.entityframeworkcore.sqlserver.3.1.9.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.9\\microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.9\\microsoft.extensions.caching.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.9\\microsoft.extensions.caching.memory.3.1.9.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.9\\microsoft.extensions.configuration.3.1.9.nupkg.sha512",

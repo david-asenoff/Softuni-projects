@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj": {}
+    "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\SUS.HTTP.csproj": {
+    "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.HTTP\\SUS.HTTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\SUS.HTTP.csproj",
+        "projectUniqueName": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.HTTP\\SUS.HTTP.csproj",
         "projectName": "SUS.HTTP",
-        "projectPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\SUS.HTTP.csproj",
+        "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.HTTP\\SUS.HTTP.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\obj\\",
+        "outputPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.HTTP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj": {
+    "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
+        "projectUniqueName": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
         "projectName": "SUS.MvcFramework.Tests",
-        "projectPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
+        "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework.Tests\\SUS.MvcFramework.Tests.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework.Tests\\obj\\",
+        "outputPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
-                "projectPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
+              "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
+                "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework\\SUS.MvcFramework.csproj"
               }
             }
           }
@@ -133,14 +133,14 @@
         }
       }
     },
-    "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
+    "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework\\SUS.MvcFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj",
+        "projectUniqueName": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework\\SUS.MvcFramework.csproj",
         "projectName": "SUS.MvcFramework",
-        "projectPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework\\SUS.MvcFramework.csproj",
+        "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework\\SUS.MvcFramework.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.MvcFramework\\obj\\",
+        "outputPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.MvcFramework\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,8 +156,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\SUS.HTTP.csproj": {
-                "projectPath": "D:\\Programming\\GitHub\\csharp-web\\csharp-web\\2020-Sept-Season\\SUS\\SUS.HTTP\\SUS.HTTP.csproj"
+              "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.HTTP\\SUS.HTTP.csproj": {
+                "projectPath": "D:\\Programming\\GitHub\\CSharp-Web-Basics\\Exam Preparations\\SUS.HTTP\\SUS.HTTP.csproj"
               }
             }
           }
