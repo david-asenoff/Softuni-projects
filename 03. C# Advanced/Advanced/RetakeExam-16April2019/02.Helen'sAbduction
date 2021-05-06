@@ -1,0 +1,151 @@
+using System;
+
+namespace HelensAbduction
+{
+    class StartUp
+    {
+        static char[][] field;
+
+        static int parisRow;
+        static int parisCol;
+
+        static void Main(string[] args)
+        {
+            int energy = int.Parse(Console.ReadLine());
+            int numberOfRows = int.Parse(Console.ReadLine());
+
+            field = new char[numberOfRows][];
+
+            Initialize();
+            GetStartingPosition();
+
+            while (true)
+            {
+                var input = Console.ReadLine().Split();
+
+                string direction = input[0];
+                int spawnRow = int.Parse(input[1]);
+                int spawnCol = int.Parse(input[2]);
+
+                field[spawnRow][spawnCol] = 'S';
+                field[parisRow][parisCol] = '-';
+
+                if (direction == "up")
+                {
+                    if (parisRow > 0)
+                    {
+                        parisRow--;
+                    }
+                }
+                else if (direction == "down")
+                {
+                    if (parisRow < field.Length - 1)
+                    {
+                        parisRow++;
+                    }
+                }
+                else if (direction == "left")
+                {
+                    if (parisCol > 0)
+                    {
+                        parisCol--;
+                    }
+                }
+                else if (direction == "right")
+                {
+                    if (parisCol < field[parisRow].Length - 1)
+                    {
+                        parisCol++;
+                    }
+                }
+
+                energy--;
+
+                if (field[parisRow][parisCol] == 'S')
+                {
+                    energy -= 2;
+
+                    if (energy > 0)
+                    {
+                        field[parisRow][parisCol] = 'P';
+                    }
+                    else
+                    {
+                        field[parisRow][parisCol] = 'X';
+                        Lose();
+                    }
+                }
+                else if (field[parisRow][parisCol] == 'H')
+                {
+                    field[parisRow][parisCol] = '-';
+                    Win(energy);
+                }
+                else
+                {
+                    field[parisRow][parisCol] = 'P';
+                }
+
+                if (energy <= 0)
+                {
+                    field[parisRow][parisCol] = 'X';
+                    Lose();
+                }
+            }
+
+        }
+
+        private static void Win(int energy)
+        {
+            Console.WriteLine($"Paris has successfully abducted Helen! Energy left: {energy}");
+
+            for (int row = 0; row < field.Length; row++)
+            {
+                Console.WriteLine(string.Join("", field[row]));
+            }
+
+            Environment.Exit(0);
+        }
+
+        private static void GetStartingPosition()
+        {
+            for (int row = 0; row < field.Length; row++)
+            {
+                for (int col = 0; col < field[row].Length; col++)
+                {
+                    if (field[row][col] == 'P')
+                    {
+                        parisRow = row;
+                        parisCol = col;
+                    }
+                }
+            }
+        }
+
+        private static void Initialize()
+        {
+            for (int row = 0; row < field.Length; row++)
+            {
+                char[] cols = Console.ReadLine().ToCharArray();
+
+                field[row] = new char[cols.Length];
+
+                for (int col = 0; col < field[row].Length; col++)
+                {
+                    field[row][col] = cols[col];
+                }
+            }
+        }
+
+        private static void Lose()
+        {
+            Console.WriteLine($"Paris died at {parisRow};{parisCol}.");
+
+            for (int row = 0; row < field.Length; row++)
+            {
+                Console.WriteLine(string.Join("", field[row]));
+            }
+
+            Environment.Exit(0);
+        }
+    }
+}
