@@ -21,5 +21,3 @@ Each course use to have its own repository, but in order to be more easy to navi
 9. JS Advanced - Working with linear structures  and associative arrays. Retrieving information from the DOM tree.  Word processing.  Working with features and JSON formats.
 
 10. JS Application - What is HTTP and how to make requests, working with non-relational databases, create simple Single Page applications, work with REST API and asynchronous programming, working with templates and routing and code testing.
-
- * [SoftUni](https://softuni.bg/ "SoftUni") is an award-winning educational IT institution providing training and career support in the field of software engineering, digital marketing and creative.
